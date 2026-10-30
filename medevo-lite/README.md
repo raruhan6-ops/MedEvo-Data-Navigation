@@ -98,5 +98,7 @@ python scripts/05_select.py --rollouts rollouts_train.jsonl rollouts_train_k8.js
 
 ## Status
 
-- **Smoke-tested locally** (no GPU) on real SLAKE val metadata with simulated model outputs: 01, 03, 05 (including the round-2 path) and 08, end to end. 00_download.py was tested here against ModelScope, since Hugging Face is blocked on this laptop: real counts 4,919 / 1,053 / 1,061, no missing tags. Downloads are now verified (JSON parses, zip passes testzip, size matches Content-Length), because the ModelScope connection once truncated train.json without raising an error. The 212 MB imgs.zip was too slow to finish on this connection, so image extraction has only been tested on a synthetic zip.
-- **Not yet run:** 02 / 04 inference, 06 training, 07, `setup.sh` and `run_pipeline.sh`. These have a syntax check only. `setup.sh`'s smoke test is the first real check of inference.
+- **Laptop pipeline: run end to end** on 31 Oct 2026 (01:10 to 05:43) with `run_laptop.py` on an RTX 3060 Laptop GPU: C0, rollouts, selection, C1 and C2 (3 seeds each) and C3. Results are in `outputs/tables.md`, and every number comes from the per-question files in `outputs/`.
+- **Main result:** on SLAKE test, navigation (C2) beats random selection (C1) at 1,500 examples by +1.85 pp, 95% paired bootstrap CI [+0.79, +2.95] (67.58 vs 65.72). See `outputs/tables.md` for Tables 1 to 5 and the lenient-scoring check.
+- **Training logs:** `logs/train_C1_s1.log`, `train_C2_s1.log` and `train_C3.log` begin with a few lines from the earlier `--quick` test (the `step 2/2` entries); the full-run entries follow.
+- **GPU-machine path** (`setup.sh`, `run_pipeline.sh`, `06_train.sh`, vLLM and ms-swift): written and syntax-checked, but not run, because no rented GPU was used.
