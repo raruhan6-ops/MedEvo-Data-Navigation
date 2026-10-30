@@ -1,0 +1,15 @@
+# GPU machine (Linux + CUDA). Install torch first, matching the machine's CUDA version:
+#   pip install torch torchvision
+# Then:
+vllm
+transformers
+accelerate
+datasets
+qwen-vl-utils
+pillow
+ms-swift
+peft
+openai          # only for C5 (Qwen API baseline)
+# Freeze exact versions after installing: pip freeze > requirements.lock.txt
+#
+# 00, 01, 03, 05 and 08 need only the Python standard library.

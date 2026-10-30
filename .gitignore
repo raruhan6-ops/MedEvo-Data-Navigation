@@ -1,0 +1,14 @@
+# Large or regenerable files: the scripts download and rebuild these
+medevo-lite/.venv/
+medevo-lite/.wheels/
+medevo-lite/models/
+medevo-lite/data/
+medevo-lite/ckpt/
+medevo-lite/ckpt_quick/
+medevo-lite/outputs_quick/
+medevo-lite/logs/full_run.pid
+__pycache__/
+*.pyc
+
+# Private correspondence
+Hi Rejuan,.docx

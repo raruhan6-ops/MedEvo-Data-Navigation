@@ -1,0 +1,521 @@
+
+=== [Sat 01:10:44] C0 eval (val, test)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C0 --split val --backend transformers --batch-size 16 --max-new-tokens 160
+backend: transformers  model: models/Qwen3.5-0.8B
+  16/1053  32/1053  48/1053  64/1053  80/1053  96/1053  112/1053  128/1053  144/1053  160/1053  176/1053  192/1053  208/1053  224/1053  240/1053  256/1053  272/1053  288/1053  304/1053  320/1053  336/1053  352/1053  368/1053  384/1053  400/1053  416/1053  432/1053  448/1053  464/1053  480/1053  496/1053  512/1053  528/1053  544/1053  560/1053  576/1053  592/1053  608/1053  624/1053  640/1053  656/1053  672/1053  688/1053  704/1053  720/1053  736/1053  752/1053  768/1053  784/1053  800/1053  816/1053  832/1053  848/1053  864/1053  880/1053  896/1053  912/1053  928/1053  944/1053  960/1053  976/1053  992/1053  1008/1053  1024/1053  1040/1053  1053/1053
+{'closed': 76.54, 'open': 34.55, 'open_recall': 40.59, 'overall': 51.38, 'n': 1053, 'condition': 'C0', 'split': 'val', 'model': 'models/Qwen3.5-0.8B', 'adapter': None, 'backend': 'transformers', 'seconds': 100}
+  (1.8 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C0 --split test --backend transformers --batch-size 16 --max-new-tokens 160
+backend: transformers  model: models/Qwen3.5-0.8B
+  16/1061  32/1061  48/1061  64/1061  80/1061  96/1061  112/1061  128/1061  144/1061  160/1061  176/1061  192/1061  208/1061  224/1061  240/1061  256/1061  272/1061  288/1061  304/1061  320/1061  336/1061  352/1061  368/1061  384/1061  400/1061  416/1061  432/1061  448/1061  464/1061  480/1061  496/1061  512/1061  528/1061  544/1061  560/1061  576/1061  592/1061  608/1061  624/1061  640/1061  656/1061  672/1061  688/1061  704/1061  720/1061  736/1061  752/1061  768/1061  784/1061  800/1061  816/1061  832/1061  848/1061  864/1061  880/1061  896/1061  912/1061  928/1061  944/1061  960/1061  976/1061  992/1061  1008/1061  1024/1061  1040/1061  1056/1061  1061/1061
+{'closed': 75.72, 'open': 36.59, 'open_recall': 42.76, 'overall': 51.93, 'n': 1061, 'condition': 'C0', 'split': 'test', 'model': 'models/Qwen3.5-0.8B', 'adapter': None, 'backend': 'transformers', 'seconds': 98}
+  (1.8 min)
+C0 val: {'closed': 76.54, 'open': 34.55, 'open_recall': 40.59, 'overall': 51.38, 'n': 1053, 'condition': 'C0', 'split': 'val', 'model': 'models/Qwen3.5-0.8B', 'adapter': None, 'backend': 'transformers', 'seconds': 100}
+
+$ scripts/03_gap_analysis.py --condition C0
+content_type:KG                     n= 155  err=0.723  regress=0.000
+content_type:Color                  n=  31  err=0.677  regress=0.000
+content_type:Plane                  n=  62  err=0.677  regress=0.000
+location:Neck                       n=  40  err=0.575  regress=0.000
+location:Brain_Tissue               n= 173  err=0.561  regress=0.000
+content_type:Position               n= 183  err=0.557  regress=0.000
+modality:X-Ray                      n= 338  err=0.527  regress=0.000
+content_type:Size                   n=  59  err=0.525  regress=0.000
+location:Pelvic Cavity              n=  42  err=0.524  regress=0.000
+location:Lung                       n= 386  err=0.510  regress=0.000
+content_type:Quantity               n=  56  err=0.500  regress=0.000
+content_type:other                  n=  11  err=0.486 (overall)  regress=0.000
+modality:MRI                        n= 233  err=0.485  regress=0.000
+modality:CT                         n= 482  err=0.459  regress=0.000
+location:other                      n=  22  err=0.455  regress=0.000
+location:Abdomen                    n= 296  err=0.432  regress=0.000
+content_type:Abnormality            n= 132  err=0.409  regress=0.000
+location:Brain_Face                 n=  40  err=0.400  regress=0.000
+location:Chest_lung                 n=  27  err=0.370  regress=0.000
+content_type:Organ                  n= 254  err=0.339  regress=0.000
+location:Brain                      n=  27  err=0.333  regress=0.000
+content_type:Modality               n= 110  err=0.227  regress=0.000
+  (0.0 min)
+
+=== [Sat 01:14:25] rollouts (k=4)
+
+$ scripts/04_rollouts.py --model models/Qwen3.5-0.8B --k 4 --backend transformers --batch-size 8 --max-new-tokens 160
+4919 pool questions x k=4
+backend: transformers  model: models/Qwen3.5-0.8B
+  8/4919  16/4919  24/4919  32/4919  40/4919  48/4919  56/4919  64/4919  72/4919  80/4919  88/4919  96/4919  104/4919  112/4919  120/4919  128/4919  136/4919  144/4919  152/4919  160/4919  168/4919  176/4919  184/4919  192/4919  200/4919  208/4919  216/4919  224/4919  232/4919  240/4919  248/4919  256/4919  264/4919  272/4919  280/4919  288/4919  296/4919  304/4919  312/4919  320/4919  328/4919  336/4919  344/4919  352/4919  360/4919  368/4919  376/4919  384/4919  392/4919  400/4919  408/4919  416/4919  424/4919  432/4919  440/4919  448/4919  456/4919  464/4919  472/4919  480/4919  488/4919  496/4919  504/4919  512/4919  520/4919  528/4919  536/4919  544/4919  552/4919  560/4919  568/4919  576/4919  584/4919  592/4919  600/4919  608/4919  616/4919  624/4919  632/4919  640/4919  648/4919  656/4919  664/4919  672/4919  680/4919  688/4919  696/4919  704/4919  712/4919  720/4919  728/4919  736/4919  744/4919  752/4919  760/4919  768/4919  776/4919  784/4919  792/4919  800/4919  808/4919  816/4919  824/4919  832/4919  840/4919  848/4919  856/4919  864/4919  872/4919  880/4919  888/4919  896/4919  904/4919  912/4919  920/4919  928/4919  936/4919  944/4919  952/4919  960/4919  968/4919  976/4919  984/4919  992/4919  1000/4919  1008/4919  1016/4919  1024/4919  1032/4919  1040/4919  1048/4919  1056/4919  1064/4919  1072/4919  1080/4919  1088/4919  1096/4919  1104/4919  1112/4919  1120/4919  1128/4919  1136/4919  1144/4919  1152/4919  1160/4919  1168/4919  1176/4919  1184/4919  1192/4919  1200/4919  1208/4919  1216/4919  1224/4919  1232/4919  1240/4919  1248/4919  1256/4919  1264/4919  1272/4919  1280/4919  1288/4919  1296/4919  1304/4919  1312/4919  1320/4919  1328/4919  1336/4919  1344/4919  1352/4919  1360/4919  1368/4919  1376/4919  1384/4919  1392/4919  1400/4919  1408/4919  1416/4919  1424/4919  1432/4919  1440/4919  1448/4919  1456/4919  1464/4919  1472/4919  1480/4919  1488/4919  1496/4919  1504/4919  1512/4919  1520/4919  1528/4919  1536/4919  1544/4919  1552/4919  1560/4919  1568/4919  1576/4919  1584/4919  1592/4919  1600/4919  1608/4919  1616/4919  1624/4919  1632/4919  1640/4919  1648/4919  1656/4919  1664/4919  1672/4919  1680/4919  1688/4919  1696/4919  1704/4919  1712/4919  1720/4919  1728/4919  1736/4919  1744/4919  1752/4919  1760/4919  1768/4919  1776/4919  1784/4919  1792/4919  1800/4919  1808/4919  1816/4919  1824/4919  1832/4919  1840/4919  1848/4919  1856/4919  1864/4919  1872/4919  1880/4919  1888/4919  1896/4919  1904/4919  1912/4919  1920/4919  1928/4919  1936/4919  1944/4919  1952/4919  1960/4919  1968/4919  1976/4919  1984/4919  1992/4919  2000/4919  2008/4919  2016/4919  2024/4919  2032/4919  2040/4919  2048/4919  2056/4919  2064/4919  2072/4919  2080/4919  2088/4919  2096/4919  2104/4919  2112/4919  2120/4919  2128/4919  2136/4919  2144/4919  2152/4919  2160/4919  2168/4919  2176/4919  2184/4919  2192/4919  2200/4919  2208/4919  2216/4919  2224/4919  2232/4919  2240/4919  2248/4919  2256/4919  2264/4919  2272/4919  2280/4919  2288/4919  2296/4919  2304/4919  2312/4919  2320/4919  2328/4919  2336/4919  2344/4919  2352/4919  2360/4919  2368/4919  2376/4919  2384/4919  2392/4919  2400/4919  2408/4919  2416/4919  2424/4919  2432/4919  2440/4919  2448/4919  2456/4919  2464/4919  2472/4919  2480/4919  2488/4919  2496/4919  2504/4919  2512/4919  2520/4919  2528/4919  2536/4919  2544/4919  2552/4919  2560/4919  2568/4919  2576/4919  2584/4919  2592/4919  2600/4919  2608/4919  2616/4919  2624/4919  2632/4919  2640/4919  2648/4919  2656/4919  2664/4919  2672/4919  2680/4919  2688/4919  2696/4919  2704/4919  2712/4919  2720/4919  2728/4919  2736/4919  2744/4919  2752/4919  2760/4919  2768/4919  2776/4919  2784/4919  2792/4919  2800/4919  2808/4919  2816/4919  2824/4919  2832/4919  2840/4919  2848/4919  2856/4919  2864/4919  2872/4919  2880/4919  2888/4919  2896/4919  2904/4919  2912/4919  2920/4919  2928/4919  2936/4919  2944/4919  2952/4919  2960/4919  2968/4919  2976/4919  2984/4919  2992/4919  3000/4919  3008/4919  3016/4919  3024/4919  3032/4919  3040/4919  3048/4919  3056/4919  3064/4919  3072/4919  3080/4919  3088/4919  3096/4919  3104/4919  3112/4919  3120/4919  3128/4919  3136/4919  3144/4919  3152/4919  3160/4919  3168/4919  3176/4919  3184/4919  3192/4919  3200/4919  3208/4919  3216/4919  3224/4919  3232/4919  3240/4919  3248/4919  3256/4919  3264/4919  3272/4919  3280/4919  3288/4919  3296/4919  3304/4919  3312/4919  3320/4919  3328/4919  3336/4919  3344/4919  3352/4919  3360/4919  3368/4919  3376/4919  3384/4919  3392/4919  3400/4919  3408/4919  3416/4919  3424/4919  3432/4919  3440/4919  3448/4919  3456/4919  3464/4919  3472/4919  3480/4919  3488/4919  3496/4919  3504/4919  3512/4919  3520/4919  3528/4919  3536/4919  3544/4919  3552/4919  3560/4919  3568/4919  3576/4919  3584/4919  3592/4919  3600/4919  3608/4919  3616/4919  3624/4919  3632/4919  3640/4919  3648/4919  3656/4919  3664/4919  3672/4919  3680/4919  3688/4919  3696/4919  3704/4919  3712/4919  3720/4919  3728/4919  3736/4919  3744/4919  3752/4919  3760/4919  3768/4919  3776/4919  3784/4919  3792/4919  3800/4919  3808/4919  3816/4919  3824/4919  3832/4919  3840/4919  3848/4919  3856/4919  3864/4919  3872/4919  3880/4919  3888/4919  3896/4919  3904/4919  3912/4919  3920/4919  3928/4919  3936/4919  3944/4919  3952/4919  3960/4919  3968/4919  3976/4919  3984/4919  3992/4919  4000/4919  4008/4919  4016/4919  4024/4919  4032/4919  4040/4919  4048/4919  4056/4919  4064/4919  4072/4919  4080/4919  4088/4919  4096/4919  4104/4919  4112/4919  4120/4919  4128/4919  4136/4919  4144/4919  4152/4919  4160/4919  4168/4919  4176/4919  4184/4919  4192/4919  4200/4919  4208/4919  4216/4919  4224/4919  4232/4919  4240/4919  4248/4919  4256/4919  4264/4919  4272/4919  4280/4919  4288/4919  4296/4919  4304/4919  4312/4919  4320/4919  4328/4919  4336/4919  4344/4919  4352/4919  4360/4919  4368/4919  4376/4919  4384/4919  4392/4919  4400/4919  4408/4919  4416/4919  4424/4919  4432/4919  4440/4919  4448/4919  4456/4919  4464/4919  4472/4919  4480/4919  4488/4919  4496/4919  4504/4919  4512/4919  4520/4919  4528/4919  4536/4919  4544/4919  4552/4919  4560/4919  4568/4919  4576/4919  4584/4919  4592/4919  4600/4919  4608/4919  4616/4919  4624/4919  4632/4919  4640/4919  4648/4919  4656/4919  4664/4919  4672/4919  4680/4919  4688/4919  4696/4919  4704/4919  4712/4919  4720/4919  4728/4919  4736/4919  4744/4919  4752/4919  4760/4919  4768/4919  4776/4919  4784/4919  4792/4919  4800/4919  4808/4919  4816/4919  4824/4919  4832/4919  4840/4919  4848/4919  4856/4919  4864/4919  4872/4919  4880/4919  4888/4919  4896/4919  4904/4919  4912/4919  4919/4919
+questions with >=1 correct rollout: 3065/4919  rollout accuracy: 0.453  (1819 s)
+  (30.5 min)
+
+=== [Sat 01:44:55] selection (B=1500)
+
+$ scripts/05_select.py --B 1500 --seeds 1 2 3
+random_s1    sampled= 2399 accepted= 1500 weakest3_share=0.125
+random_s2    sampled= 2399 accepted= 1500 weakest3_share=0.125
+random_s3    sampled= 2413 accepted= 1500 weakest3_share=0.128
+nav          sampled= 3354 accepted= 1500 weakest3_share=0.222
+all          sampled= 4919 accepted= 3065 weakest3_share=0.122
+  (0.0 min)
+
+=== [Sat 01:44:55] first comparison: C1_s1 vs C2_s1
+
+$ scripts/06_train_hf.py --model models/Qwen3.5-0.8B --data random_s1 --seed 1 --run C1_s1 --epochs 2
+trainable params: 5,411,328 || all params: 858,397,248 || trainable%: 0.6304
+C1_s1: 1500 examples, 188 optimizer steps, LoRA on ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj']
+step 10/188  loss 0.7542  lr 9.73e-05  6.8s/step  eta 20 min
+step 20/188  loss 0.5937  lr 9.18e-05  6.8s/step  eta 19 min
+step 30/188  loss 0.4114  lr 8.63e-05  6.8s/step  eta 18 min
+step 40/188  loss 0.5624  lr 8.09e-05  6.7s/step  eta 17 min
+step 50/188  loss 0.4741  lr 7.54e-05  6.7s/step  eta 16 min
+step 60/188  loss 0.4229  lr 6.99e-05  6.7s/step  eta 14 min
+step 70/188  loss 0.3485  lr 6.45e-05  6.7s/step  eta 13 min
+step 80/188  loss 0.3422  lr 5.90e-05  6.7s/step  eta 12 min
+step 90/188  loss 0.3761  lr 5.36e-05  6.7s/step  eta 11 min
+step 100/188  loss 0.3162  lr 4.81e-05  6.7s/step  eta 10 min
+step 110/188  loss 0.3399  lr 4.26e-05  6.7s/step  eta 9 min
+step 120/188  loss 0.2484  lr 3.72e-05  6.7s/step  eta 8 min
+step 130/188  loss 0.3503  lr 3.17e-05  6.7s/step  eta 6 min
+step 140/188  loss 0.3005  lr 2.62e-05  6.7s/step  eta 5 min
+step 150/188  loss 0.3274  lr 2.08e-05  6.7s/step  eta 4 min
+step 160/188  loss 0.2912  lr 1.53e-05  6.7s/step  eta 3 min
+step 170/188  loss 0.2843  lr 9.84e-06  6.7s/step  eta 2 min
+step 180/188  loss 0.3320  lr 4.37e-06  6.7s/step  eta 1 min
+step 188/188  loss 0.2722  lr 0.00e+00  6.7s/step  eta 0 min
+{'run': 'C1_s1', 'minutes': 21.0, 'skipped_too_long': 0, 'peak_gpu_gb': 4.93} -> ckpt\C1_s1\adapter
+  (21.2 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C1_s1 --split test --backend transformers --batch-size 16 --max-new-tokens 160 --adapter C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C1_s1\adapter
+backend: transformers  model: models/Qwen3.5-0.8B  adapter: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C1_s1\adapter
+  16/1061  32/1061  48/1061  64/1061  80/1061  96/1061  112/1061  128/1061  144/1061  160/1061  176/1061  192/1061  208/1061  224/1061  240/1061  256/1061  272/1061  288/1061  304/1061  320/1061  336/1061  352/1061  368/1061  384/1061  400/1061  416/1061  432/1061  448/1061  464/1061  480/1061  496/1061  512/1061  528/1061  544/1061  560/1061  576/1061  592/1061  608/1061  624/1061  640/1061  656/1061  672/1061  688/1061  704/1061  720/1061  736/1061  752/1061  768/1061  784/1061  800/1061  816/1061  832/1061  848/1061  864/1061  880/1061  896/1061  912/1061  928/1061  944/1061  960/1061  976/1061  992/1061  1008/1061  1024/1061  1040/1061  1056/1061  1061/1061
+{'closed': 86.3, 'open': 52.4, 'open_recall': 56.43, 'overall': 65.69, 'n': 1061, 'condition': 'C1_s1', 'split': 'test', 'model': 'models/Qwen3.5-0.8B', 'adapter': 'C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C1_s1\\adapter', 'backend': 'transformers', 'seconds': 99}
+  (1.9 min)
+
+$ scripts/06_train_hf.py --model models/Qwen3.5-0.8B --data nav --seed 1 --run C2_s1 --epochs 2
+trainable params: 5,411,328 || all params: 858,397,248 || trainable%: 0.6304
+C2_s1: 1500 examples, 188 optimizer steps, LoRA on ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj']
+step 10/188  loss 0.8394  lr 9.73e-05  6.9s/step  eta 21 min
+step 20/188  loss 0.5635  lr 9.18e-05  6.8s/step  eta 19 min
+step 30/188  loss 0.5802  lr 8.63e-05  6.7s/step  eta 18 min
+step 40/188  loss 0.4935  lr 8.09e-05  6.7s/step  eta 17 min
+step 50/188  loss 0.5424  lr 7.54e-05  6.7s/step  eta 15 min
+step 60/188  loss 0.4948  lr 6.99e-05  6.7s/step  eta 14 min
+step 70/188  loss 0.5161  lr 6.45e-05  6.7s/step  eta 13 min
+step 80/188  loss 0.4236  lr 5.90e-05  6.7s/step  eta 12 min
+step 90/188  loss 0.4687  lr 5.36e-05  6.7s/step  eta 11 min
+step 100/188  loss 0.4485  lr 4.81e-05  6.7s/step  eta 10 min
+step 110/188  loss 0.4188  lr 4.26e-05  6.7s/step  eta 9 min
+step 120/188  loss 0.3575  lr 3.72e-05  6.7s/step  eta 8 min
+step 130/188  loss 0.3578  lr 3.17e-05  6.7s/step  eta 6 min
+step 140/188  loss 0.3667  lr 2.62e-05  6.7s/step  eta 5 min
+step 150/188  loss 0.3790  lr 2.08e-05  6.7s/step  eta 4 min
+step 160/188  loss 0.3095  lr 1.53e-05  6.7s/step  eta 3 min
+step 170/188  loss 0.3054  lr 9.84e-06  6.7s/step  eta 2 min
+step 180/188  loss 0.3595  lr 4.37e-06  6.7s/step  eta 1 min
+step 188/188  loss 0.3545  lr 0.00e+00  6.7s/step  eta 0 min
+{'run': 'C2_s1', 'minutes': 20.9, 'skipped_too_long': 0, 'peak_gpu_gb': 4.92} -> ckpt\C2_s1\adapter
+  (21.1 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C2_s1 --split test --backend transformers --batch-size 16 --max-new-tokens 160 --adapter C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C2_s1\adapter
+backend: transformers  model: models/Qwen3.5-0.8B  adapter: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C2_s1\adapter
+  16/1061  32/1061  48/1061  64/1061  80/1061  96/1061  112/1061  128/1061  144/1061  160/1061  176/1061  192/1061  208/1061  224/1061  240/1061  256/1061  272/1061  288/1061  304/1061  320/1061  336/1061  352/1061  368/1061  384/1061  400/1061  416/1061  432/1061  448/1061  464/1061  480/1061  496/1061  512/1061  528/1061  544/1061  560/1061  576/1061  592/1061  608/1061  624/1061  640/1061  656/1061  672/1061  688/1061  704/1061  720/1061  736/1061  752/1061  768/1061  784/1061  800/1061  816/1061  832/1061  848/1061  864/1061  880/1061  896/1061  912/1061  928/1061  944/1061  960/1061  976/1061  992/1061  1008/1061  1024/1061  1040/1061  1056/1061  1061/1061
+{'closed': 85.82, 'open': 55.97, 'open_recall': 59.98, 'overall': 67.67, 'n': 1061, 'condition': 'C2_s1', 'split': 'test', 'model': 'models/Qwen3.5-0.8B', 'adapter': 'C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C2_s1\\adapter', 'backend': 'transformers', 'seconds': 88}
+  (1.7 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C2_s1 --split val --backend transformers --batch-size 16 --max-new-tokens 160 --adapter C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C2_s1\adapter
+backend: transformers  model: models/Qwen3.5-0.8B  adapter: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C2_s1\adapter
+  16/1053  32/1053  48/1053  64/1053  80/1053  96/1053  112/1053  128/1053  144/1053  160/1053  176/1053  192/1053  208/1053  224/1053  240/1053  256/1053  272/1053  288/1053  304/1053  320/1053  336/1053  352/1053  368/1053  384/1053  400/1053  416/1053  432/1053  448/1053  464/1053  480/1053  496/1053  512/1053  528/1053  544/1053  560/1053  576/1053  592/1053  608/1053  624/1053  640/1053  656/1053  672/1053  688/1053  704/1053  720/1053  736/1053  752/1053  768/1053  784/1053  800/1053  816/1053  832/1053  848/1053  864/1053  880/1053  896/1053  912/1053  928/1053  944/1053  960/1053  976/1053  992/1053  1008/1053  1024/1053  1040/1053  1053/1053
+{'closed': 86.49, 'open': 56.74, 'open_recall': 59.73, 'overall': 68.66, 'n': 1053, 'condition': 'C2_s1', 'split': 'val', 'model': 'models/Qwen3.5-0.8B', 'adapter': 'C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C2_s1\\adapter', 'backend': 'transformers', 'seconds': 86}
+  (1.6 min)
+
+$ scripts/08_tables.py
+# Results (SLAKE, English)
+
+Accuracy in %, differences in percentage points (pp).
+
+## Table 1 — Base model (C0) zero-shot accuracy
+
+| Split | Closed | Open | Open recall | Overall | N questions |
+|---|---|---|---|---|---|
+| Feedback (val) | 76.54 | 34.55 | 40.59 | 51.38 | 1053 |
+| Test | 75.72 | 36.59 | 42.76 | 51.93 | 1061 |
+
+## Table 2 — Capability gaps on the feedback set (C0), sorted by error rate
+
+| Axis | Tag group | N | Error rate | Navigation quota (of 1500) |
+|---|---|---|---|---|
+| content_type | KG | 155 | 72.3 | 101 |
+| content_type | Color | 31 | 67.7 | 95 |
+| content_type | Plane | 62 | 67.7 | 95 |
+| location | Neck | 40 | 57.5 | 80 |
+| location | Brain_Tissue | 173 | 56.1 | 78 |
+| content_type | Position | 183 | 55.7 | 78 |
+| modality | X-Ray | 338 | 52.7 | 73 |
+| content_type | Size | 59 | 52.5 | 73 |
+| location | Pelvic Cavity | 42 | 52.4 | 73 |
+| location | Lung | 386 | 51.0 | 71 |
+| content_type | Quantity | 56 | 50.0 | 70 |
+| content_type | other | 11 | 48.6 * | 68 |
+| modality | MRI | 233 | 48.5 | 68 |
+| modality | CT | 482 | 45.9 | 64 |
+| location | other | 22 | 45.5 | 63 |
+| location | Abdomen | 296 | 43.2 | 60 |
+| content_type | Abnormality | 132 | 40.9 | 57 |
+| location | Brain_Face | 40 | 40.0 | 56 |
+| location | Chest_lung | 27 | 37.0 | 52 |
+| content_type | Organ | 254 | 33.9 | 47 |
+| location | Brain | 27 | 33.3 | 46 |
+| content_type | Modality | 110 | 22.7 | 32 |
+
+\* group below the minimum size; uses the overall feedback error rate.
+
+## Table 3 — Main comparison on SLAKE test (equal budget B)
+
+| Condition | Training examples | Closed | Open | Overall (mean ± SD) | Δ vs C0 |
+|---|---|---|---|---|---|
+| C0 Base | 0 | 75.72 | 36.59 | 51.93 | — |
+| C1 Random | 1500 | 86.30 | 52.40 | 65.69 | +13.76 |
+| C2 Navigation | 1500 | 85.82 | 55.97 | 67.67 | +15.74 |
+| C3 All correct rollouts | 3065 | — | — | — | — |
+
+**C2 − C1 (seed-averaged): +1.98 pp, 95% paired bootstrap CI [+0.38, +3.58]** (10,000 question resamples).
+
+- seed 1: +1.98 pp [+0.47, +3.58]
+
+Reference: Paper, Qwen3.5-9B on SLAKE: 76.80 (R0) → 78.23 (R3); not directly comparable.
+
+## Table 4 — Per-group change on test (C1 vs C2)
+
+| Tag group | N test | C0 | C1 | C2 | C2 − C1 | Targeted by navigation? |
+|---|---|---|---|---|---|---|
+| location:other | 10 | 30.0 | 50.0 | 60.0 | +10.0 | yes (4% vs 2%) |
+| location:Brain_Tissue | 166 | 49.4 | 57.8 | 63.3 | +5.4 | yes (14% vs 12%) |
+| content_type:Organ | 253 | 66.8 | 78.3 | 83.4 | +5.1 | no (27% vs 31%) |
+| location:Brain | 42 | 73.8 | 76.2 | 81.0 | +4.8 | no (6% vs 6%) |
+| content_type:Quantity | 52 | 48.1 | 71.2 | 75.0 | +3.8 | yes (7% vs 4%) |
+| modality:MRI | 228 | 56.1 | 65.4 | 68.9 | +3.5 | no (22% vs 24%) |
+| content_type:Abnormality | 150 | 54.7 | 64.7 | 68.0 | +3.3 | no (13% vs 16%) |
+| content_type:Position | 186 | 39.2 | 47.3 | 49.5 | +2.2 | no (11% vs 13%) |
+| location:Pelvic Cavity | 47 | 29.8 | 40.4 | 42.6 | +2.1 | yes (8% vs 4%) |
+| modality:CT | 472 | 51.5 | 63.8 | 65.7 | +1.9 | yes (55% vs 49%) |
+| content_type:Plane | 58 | 37.9 | 46.6 | 48.3 | +1.7 | yes (6% vs 3%) |
+| location:Abdomen | 313 | 54.0 | 67.1 | 68.7 | +1.6 | no (24% vs 33%) |
+| content_type:KG | 148 | 26.4 | 39.9 | 41.2 | +1.4 | yes (10% vs 6%) |
+| modality:X-Ray | 361 | 49.9 | 68.4 | 69.5 | +1.1 | no (24% vs 27%) |
+| location:Lung | 419 | 52.7 | 70.2 | 71.1 | +1.0 | no (29% vs 34%) |
+| content_type:other | 7 | 0.0 | 0.0 | 0.0 | +0.0 | no (0% vs 0%) |
+| location:Neck | 35 | 45.7 | 60.0 | 60.0 | +0.0 | yes (4% vs 2%) |
+| content_type:Modality | 108 | 88.0 | 97.2 | 95.4 | -1.9 | no (12% vs 16%) |
+| content_type:Size | 65 | 47.7 | 86.2 | 83.1 | -3.1 | no (8% vs 8%) |
+| location:Brain_Face | 29 | 51.7 | 69.0 | 65.5 | -3.4 | yes (6% vs 3%) |
+| content_type:Color | 34 | 44.1 | 88.2 | 82.4 | -5.9 | yes (6% vs 3%) |
+
+Targeted = the group's share of navigation examples exceeds its share of usable pool questions (shown as nav share vs pool share). Small groups are noisy.
+
+## Table 5 — Data statistics per condition
+
+| Selection | Questions sampled | With ≥1 correct rollout | Accepted examples | Correct rollouts (%) | Share from weakest 3 groups (%) |
+|---|---|---|---|---|---|
+| all | 4919 | 3065 | 3065 | 45.3 | 12.2 |
+| nav | 3354 | 1500 | 1500 | 23.2 | 22.2 |
+| random_s1 | 2399 | 1500 | 1500 | 45.1 | 12.5 |
+| random_s2 | 2399 | 1500 | 1500 | 45.8 | 12.5 |
+| random_s3 | 2413 | 1500 | 1500 | 45.2 | 12.8 |
+
+Weakest 3 groups (C0 feedback): content_type:KG, content_type:Color, content_type:Plane. Questions sampled counts every pool question the selector walked, including those skipped for having no correct rollout.
+
+  (0.1 min)
+
+=== [Sat 02:32:27] remaining seeds + C3
+
+$ scripts/06_train_hf.py --model models/Qwen3.5-0.8B --data random_s2 --seed 2 --run C1_s2 --epochs 2
+trainable params: 5,411,328 || all params: 858,397,248 || trainable%: 0.6304
+C1_s2: 1500 examples, 188 optimizer steps, LoRA on ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj']
+step 10/188  loss 0.7650  lr 9.73e-05  7.5s/step  eta 22 min
+step 20/188  loss 0.5257  lr 9.18e-05  7.4s/step  eta 21 min
+step 30/188  loss 0.3958  lr 8.63e-05  7.2s/step  eta 19 min
+step 40/188  loss 0.5226  lr 8.09e-05  7.2s/step  eta 18 min
+step 50/188  loss 0.4836  lr 7.54e-05  7.1s/step  eta 16 min
+step 60/188  loss 0.3612  lr 6.99e-05  7.1s/step  eta 15 min
+step 70/188  loss 0.4381  lr 6.45e-05  7.2s/step  eta 14 min
+step 80/188  loss 0.3612  lr 5.90e-05  7.2s/step  eta 13 min
+step 90/188  loss 0.4380  lr 5.36e-05  7.1s/step  eta 12 min
+step 100/188  loss 0.3608  lr 4.81e-05  7.1s/step  eta 10 min
+step 110/188  loss 0.3017  lr 4.26e-05  7.1s/step  eta 9 min
+step 120/188  loss 0.2413  lr 3.72e-05  7.1s/step  eta 8 min
+step 130/188  loss 0.3103  lr 3.17e-05  7.1s/step  eta 7 min
+step 140/188  loss 0.3331  lr 2.62e-05  7.1s/step  eta 6 min
+step 150/188  loss 0.2771  lr 2.08e-05  7.1s/step  eta 5 min
+step 160/188  loss 0.3507  lr 1.53e-05  7.1s/step  eta 3 min
+step 170/188  loss 0.2301  lr 9.84e-06  7.1s/step  eta 2 min
+step 180/188  loss 0.2675  lr 4.37e-06  7.1s/step  eta 1 min
+step 188/188  loss 0.3817  lr 0.00e+00  7.1s/step  eta 0 min
+{'run': 'C1_s2', 'minutes': 22.2, 'skipped_too_long': 0, 'peak_gpu_gb': 4.76} -> ckpt\C1_s2\adapter
+  (22.4 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C1_s2 --split test --backend transformers --batch-size 16 --max-new-tokens 160 --adapter C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C1_s2\adapter
+backend: transformers  model: models/Qwen3.5-0.8B  adapter: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C1_s2\adapter
+  16/1061  32/1061  48/1061  64/1061  80/1061  96/1061  112/1061  128/1061  144/1061  160/1061  176/1061  192/1061  208/1061  224/1061  240/1061  256/1061  272/1061  288/1061  304/1061  320/1061  336/1061  352/1061  368/1061  384/1061  400/1061  416/1061  432/1061  448/1061  464/1061  480/1061  496/1061  512/1061  528/1061  544/1061  560/1061  576/1061  592/1061  608/1061  624/1061  640/1061  656/1061  672/1061  688/1061  704/1061  720/1061  736/1061  752/1061  768/1061  784/1061  800/1061  816/1061  832/1061  848/1061  864/1061  880/1061  896/1061  912/1061  928/1061  944/1061  960/1061  976/1061  992/1061  1008/1061  1024/1061  1040/1061  1056/1061  1061/1061
+{'closed': 84.86, 'open': 52.87, 'open_recall': 56.85, 'overall': 65.41, 'n': 1061, 'condition': 'C1_s2', 'split': 'test', 'model': 'models/Qwen3.5-0.8B', 'adapter': 'C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C1_s2\\adapter', 'backend': 'transformers', 'seconds': 86}
+  (1.6 min)
+
+$ scripts/06_train_hf.py --model models/Qwen3.5-0.8B --data nav --seed 2 --run C2_s2 --epochs 2
+trainable params: 5,411,328 || all params: 858,397,248 || trainable%: 0.6304
+C2_s2: 1500 examples, 188 optimizer steps, LoRA on ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj']
+step 10/188  loss 0.9157  lr 9.73e-05  6.7s/step  eta 20 min
+step 20/188  loss 0.7067  lr 9.18e-05  6.6s/step  eta 19 min
+step 30/188  loss 0.5619  lr 8.63e-05  6.6s/step  eta 17 min
+step 40/188  loss 0.5171  lr 8.09e-05  6.7s/step  eta 16 min
+step 50/188  loss 0.4709  lr 7.54e-05  7.0s/step  eta 16 min
+step 60/188  loss 0.4707  lr 6.99e-05  7.2s/step  eta 15 min
+step 70/188  loss 0.5302  lr 6.45e-05  7.3s/step  eta 14 min
+step 80/188  loss 0.5539  lr 5.90e-05  7.4s/step  eta 13 min
+step 90/188  loss 0.5662  lr 5.36e-05  7.5s/step  eta 12 min
+step 100/188  loss 0.4389  lr 4.81e-05  7.6s/step  eta 11 min
+step 110/188  loss 0.3680  lr 4.26e-05  7.7s/step  eta 10 min
+step 120/188  loss 0.3261  lr 3.72e-05  7.7s/step  eta 9 min
+step 130/188  loss 0.3660  lr 3.17e-05  7.7s/step  eta 7 min
+step 140/188  loss 0.3042  lr 2.62e-05  7.8s/step  eta 6 min
+step 150/188  loss 0.3923  lr 2.08e-05  7.8s/step  eta 5 min
+step 160/188  loss 0.2960  lr 1.53e-05  7.8s/step  eta 4 min
+step 170/188  loss 0.3356  lr 9.84e-06  7.8s/step  eta 2 min
+step 180/188  loss 0.4466  lr 4.37e-06  7.9s/step  eta 1 min
+step 188/188  loss 0.3629  lr 0.00e+00  7.9s/step  eta 0 min
+{'run': 'C2_s2', 'minutes': 24.7, 'skipped_too_long': 0, 'peak_gpu_gb': 4.93} -> ckpt\C2_s2\adapter
+  (24.9 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C2_s2 --split test --backend transformers --batch-size 16 --max-new-tokens 160 --adapter C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C2_s2\adapter
+backend: transformers  model: models/Qwen3.5-0.8B  adapter: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C2_s2\adapter
+  16/1061  32/1061  48/1061  64/1061  80/1061  96/1061  112/1061  128/1061  144/1061  160/1061  176/1061  192/1061  208/1061  224/1061  240/1061  256/1061  272/1061  288/1061  304/1061  320/1061  336/1061  352/1061  368/1061  384/1061  400/1061  416/1061  432/1061  448/1061  464/1061  480/1061  496/1061  512/1061  528/1061  544/1061  560/1061  576/1061  592/1061  608/1061  624/1061  640/1061  656/1061  672/1061  688/1061  704/1061  720/1061  736/1061  752/1061  768/1061  784/1061  800/1061  816/1061  832/1061  848/1061  864/1061  880/1061  896/1061  912/1061  928/1061  944/1061  960/1061  976/1061  992/1061  1008/1061  1024/1061  1040/1061  1056/1061  1061/1061
+{'closed': 88.22, 'open': 54.73, 'open_recall': 59.15, 'overall': 67.86, 'n': 1061, 'condition': 'C2_s2', 'split': 'test', 'model': 'models/Qwen3.5-0.8B', 'adapter': 'C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C2_s2\\adapter', 'backend': 'transformers', 'seconds': 98}
+  (2.0 min)
+
+$ scripts/06_train_hf.py --model models/Qwen3.5-0.8B --data random_s3 --seed 3 --run C1_s3 --epochs 2
+trainable params: 5,411,328 || all params: 858,397,248 || trainable%: 0.6304
+C1_s3: 1500 examples, 188 optimizer steps, LoRA on ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj']
+step 10/188  loss 0.7168  lr 9.73e-05  7.7s/step  eta 23 min
+step 20/188  loss 0.4933  lr 9.18e-05  8.1s/step  eta 23 min
+step 30/188  loss 0.4541  lr 8.63e-05  8.3s/step  eta 22 min
+step 40/188  loss 0.4203  lr 8.09e-05  9.4s/step  eta 23 min
+step 50/188  loss 0.4028  lr 7.54e-05  11.2s/step  eta 26 min
+step 60/188  loss 0.4555  lr 6.99e-05  14.1s/step  eta 30 min
+step 70/188  loss 0.5023  lr 6.45e-05  16.2s/step  eta 32 min
+step 80/188  loss 0.3780  lr 5.90e-05  17.7s/step  eta 32 min
+step 90/188  loss 0.4437  lr 5.36e-05  18.4s/step  eta 30 min
+step 100/188  loss 0.2801  lr 4.81e-05  18.4s/step  eta 27 min
+step 110/188  loss 0.3251  lr 4.26e-05  18.8s/step  eta 24 min
+step 120/188  loss 0.3253  lr 3.72e-05  19.6s/step  eta 22 min
+step 130/188  loss 0.3318  lr 3.17e-05  20.3s/step  eta 20 min
+step 140/188  loss 0.2731  lr 2.62e-05  20.8s/step  eta 17 min
+step 150/188  loss 0.3023  lr 2.08e-05  20.8s/step  eta 13 min
+step 160/188  loss 0.3167  lr 1.53e-05  19.9s/step  eta 9 min
+step 170/188  loss 0.3517  lr 9.84e-06  19.2s/step  eta 6 min
+step 180/188  loss 0.2595  lr 4.37e-06  18.5s/step  eta 2 min
+step 188/188  loss 0.2723  lr 0.00e+00  18.1s/step  eta 0 min
+{'run': 'C1_s3', 'minutes': 56.7, 'skipped_too_long': 0, 'peak_gpu_gb': 4.96} -> ckpt\C1_s3\adapter
+  (56.9 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C1_s3 --split test --backend transformers --batch-size 16 --max-new-tokens 160 --adapter C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C1_s3\adapter
+backend: transformers  model: models/Qwen3.5-0.8B  adapter: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C1_s3\adapter
+  16/1061  32/1061  48/1061  64/1061  80/1061  96/1061  112/1061  128/1061  144/1061  160/1061  176/1061  192/1061  208/1061  224/1061  240/1061  256/1061  272/1061  288/1061  304/1061  320/1061  336/1061  352/1061  368/1061  384/1061  400/1061  416/1061  432/1061  448/1061  464/1061  480/1061  496/1061  512/1061  528/1061  544/1061  560/1061  576/1061  592/1061  608/1061  624/1061  640/1061  656/1061  672/1061  688/1061  704/1061  720/1061  736/1061  752/1061  768/1061  784/1061  800/1061  816/1061  832/1061  848/1061  864/1061  880/1061  896/1061  912/1061  928/1061  944/1061  960/1061  976/1061  992/1061  1008/1061  1024/1061  1040/1061  1056/1061  1061/1061
+{'closed': 85.58, 'open': 53.49, 'open_recall': 57.37, 'overall': 66.07, 'n': 1061, 'condition': 'C1_s3', 'split': 'test', 'model': 'models/Qwen3.5-0.8B', 'adapter': 'C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C1_s3\\adapter', 'backend': 'transformers', 'seconds': 92}
+  (1.8 min)
+
+$ scripts/06_train_hf.py --model models/Qwen3.5-0.8B --data nav --seed 3 --run C2_s3 --epochs 2
+trainable params: 5,411,328 || all params: 858,397,248 || trainable%: 0.6304
+C2_s3: 1500 examples, 188 optimizer steps, LoRA on ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj']
+step 10/188  loss 1.0411  lr 9.73e-05  8.6s/step  eta 25 min
+step 20/188  loss 0.6692  lr 9.18e-05  8.2s/step  eta 23 min
+step 30/188  loss 0.6248  lr 8.63e-05  8.1s/step  eta 21 min
+step 40/188  loss 0.5162  lr 8.09e-05  8.0s/step  eta 20 min
+step 50/188  loss 0.4826  lr 7.54e-05  7.9s/step  eta 18 min
+step 60/188  loss 0.5002  lr 6.99e-05  7.8s/step  eta 17 min
+step 70/188  loss 0.5243  lr 6.45e-05  7.8s/step  eta 15 min
+step 80/188  loss 0.4286  lr 5.90e-05  7.8s/step  eta 14 min
+step 90/188  loss 0.4704  lr 5.36e-05  7.7s/step  eta 13 min
+step 100/188  loss 0.3738  lr 4.81e-05  7.7s/step  eta 11 min
+step 110/188  loss 0.3954  lr 4.26e-05  7.7s/step  eta 10 min
+step 120/188  loss 0.4338  lr 3.72e-05  7.7s/step  eta 9 min
+step 130/188  loss 0.3316  lr 3.17e-05  7.7s/step  eta 7 min
+step 140/188  loss 0.3742  lr 2.62e-05  7.7s/step  eta 6 min
+step 150/188  loss 0.3407  lr 2.08e-05  7.7s/step  eta 5 min
+step 160/188  loss 0.2973  lr 1.53e-05  7.7s/step  eta 4 min
+step 170/188  loss 0.3561  lr 9.84e-06  7.7s/step  eta 2 min
+step 180/188  loss 0.3105  lr 4.37e-06  7.6s/step  eta 1 min
+step 188/188  loss 0.4047  lr 0.00e+00  7.6s/step  eta 0 min
+{'run': 'C2_s3', 'minutes': 24.0, 'skipped_too_long': 0, 'peak_gpu_gb': 4.93} -> ckpt\C2_s3\adapter
+  (24.2 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C2_s3 --split test --backend transformers --batch-size 16 --max-new-tokens 160 --adapter C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C2_s3\adapter
+backend: transformers  model: models/Qwen3.5-0.8B  adapter: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C2_s3\adapter
+  16/1061  32/1061  48/1061  64/1061  80/1061  96/1061  112/1061  128/1061  144/1061  160/1061  176/1061  192/1061  208/1061  224/1061  240/1061  256/1061  272/1061  288/1061  304/1061  320/1061  336/1061  352/1061  368/1061  384/1061  400/1061  416/1061  432/1061  448/1061  464/1061  480/1061  496/1061  512/1061  528/1061  544/1061  560/1061  576/1061  592/1061  608/1061  624/1061  640/1061  656/1061  672/1061  688/1061  704/1061  720/1061  736/1061  752/1061  768/1061  784/1061  800/1061  816/1061  832/1061  848/1061  864/1061  880/1061  896/1061  912/1061  928/1061  944/1061  960/1061  976/1061  992/1061  1008/1061  1024/1061  1040/1061  1056/1061  1061/1061
+{'closed': 85.82, 'open': 55.19, 'open_recall': 60.11, 'overall': 67.2, 'n': 1061, 'condition': 'C2_s3', 'split': 'test', 'model': 'models/Qwen3.5-0.8B', 'adapter': 'C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C2_s3\\adapter', 'backend': 'transformers', 'seconds': 103}
+  (1.9 min)
+
+$ scripts/06_train_hf.py --model models/Qwen3.5-0.8B --data all --seed 1 --run C3 --epochs 2
+trainable params: 5,411,328 || all params: 858,397,248 || trainable%: 0.6304
+C3: 3065 examples, 384 optimizer steps, LoRA on ['down_proj', 'gate_proj', 'in_proj_a', 'in_proj_b', 'in_proj_qkv', 'in_proj_z', 'k_proj', 'o_proj', 'out_proj', 'q_proj', 'up_proj', 'v_proj']
+step 10/384  loss 0.8583  lr 9.09e-05  7.4s/step  eta 46 min
+step 20/384  loss 0.7376  lr 9.76e-05  7.1s/step  eta 43 min
+step 30/384  loss 0.5473  lr 9.49e-05  7.3s/step  eta 43 min
+step 40/384  loss 0.4551  lr 9.22e-05  7.8s/step  eta 45 min
+step 50/384  loss 0.3687  lr 8.95e-05  8.0s/step  eta 45 min
+step 60/384  loss 0.4786  lr 8.69e-05  8.1s/step  eta 44 min
+step 70/384  loss 0.4433  lr 8.42e-05  8.1s/step  eta 42 min
+step 80/384  loss 0.4264  lr 8.15e-05  8.1s/step  eta 41 min
+step 90/384  loss 0.3945  lr 7.88e-05  8.1s/step  eta 40 min
+step 100/384  loss 0.4745  lr 7.61e-05  8.1s/step  eta 38 min
+step 110/384  loss 0.4249  lr 7.35e-05  8.1s/step  eta 37 min
+step 120/384  loss 0.3777  lr 7.08e-05  8.1s/step  eta 36 min
+step 130/384  loss 0.4726  lr 6.81e-05  8.0s/step  eta 34 min
+step 140/384  loss 0.4104  lr 6.54e-05  7.9s/step  eta 32 min
+step 150/384  loss 0.3031  lr 6.27e-05  7.9s/step  eta 31 min
+step 160/384  loss 0.3410  lr 6.01e-05  7.9s/step  eta 30 min
+step 170/384  loss 0.3212  lr 5.74e-05  8.0s/step  eta 28 min
+step 180/384  loss 0.3932  lr 5.47e-05  8.0s/step  eta 27 min
+step 190/384  loss 0.3657  lr 5.20e-05  8.1s/step  eta 26 min
+step 200/384  loss 0.2163  lr 4.93e-05  8.1s/step  eta 25 min
+step 210/384  loss 0.3819  lr 4.66e-05  8.1s/step  eta 24 min
+step 220/384  loss 0.2758  lr 4.40e-05  8.2s/step  eta 22 min
+step 230/384  loss 0.2748  lr 4.13e-05  8.2s/step  eta 21 min
+step 240/384  loss 0.3533  lr 3.86e-05  8.2s/step  eta 20 min
+step 250/384  loss 0.3240  lr 3.59e-05  8.2s/step  eta 18 min
+step 260/384  loss 0.2635  lr 3.32e-05  8.2s/step  eta 17 min
+step 270/384  loss 0.2968  lr 3.06e-05  8.2s/step  eta 16 min
+step 280/384  loss 0.2820  lr 2.79e-05  8.3s/step  eta 14 min
+step 290/384  loss 0.2782  lr 2.52e-05  8.3s/step  eta 13 min
+step 300/384  loss 0.3049  lr 2.25e-05  8.3s/step  eta 12 min
+step 310/384  loss 0.3495  lr 1.98e-05  8.3s/step  eta 10 min
+step 320/384  loss 0.2596  lr 1.72e-05  8.3s/step  eta 9 min
+step 330/384  loss 0.3279  lr 1.45e-05  8.3s/step  eta 8 min
+step 340/384  loss 0.3023  lr 1.18e-05  8.3s/step  eta 6 min
+step 350/384  loss 0.2496  lr 9.12e-06  8.3s/step  eta 5 min
+step 360/384  loss 0.3065  lr 6.43e-06  8.3s/step  eta 3 min
+step 370/384  loss 0.3165  lr 3.75e-06  8.3s/step  eta 2 min
+step 380/384  loss 0.2642  lr 1.07e-06  8.3s/step  eta 1 min
+step 384/384  loss 0.2723  lr 0.00e+00  8.3s/step  eta 0 min
+{'run': 'C3', 'minutes': 53.2, 'skipped_too_long': 0, 'peak_gpu_gb': 4.93} -> ckpt\C3\adapter
+  (53.5 min)
+
+$ scripts/02_eval.py --model models/Qwen3.5-0.8B --condition C3 --split test --backend transformers --batch-size 16 --max-new-tokens 160 --adapter C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C3\adapter
+backend: transformers  model: models/Qwen3.5-0.8B  adapter: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\ckpt\C3\adapter
+  16/1061  32/1061  48/1061  64/1061  80/1061  96/1061  112/1061  128/1061  144/1061  160/1061  176/1061  192/1061  208/1061  224/1061  240/1061  256/1061  272/1061  288/1061  304/1061  320/1061  336/1061  352/1061  368/1061  384/1061  400/1061  416/1061  432/1061  448/1061  464/1061  480/1061  496/1061  512/1061  528/1061  544/1061  560/1061  576/1061  592/1061  608/1061  624/1061  640/1061  656/1061  672/1061  688/1061  704/1061  720/1061  736/1061  752/1061  768/1061  784/1061  800/1061  816/1061  832/1061  848/1061  864/1061  880/1061  896/1061  912/1061  928/1061  944/1061  960/1061  976/1061  992/1061  1008/1061  1024/1061  1040/1061  1056/1061  1061/1061
+{'closed': 86.78, 'open': 55.97, 'open_recall': 60.6, 'overall': 68.05, 'n': 1061, 'condition': 'C3', 'split': 'test', 'model': 'models/Qwen3.5-0.8B', 'adapter': 'C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C3\\adapter', 'backend': 'transformers', 'seconds': 92}
+  (1.9 min)
+
+=== [Sat 05:43:27] tables
+
+$ scripts/08_tables.py
+# Results (SLAKE, English)
+
+Accuracy in %, differences in percentage points (pp).
+
+## Table 1 — Base model (C0) zero-shot accuracy
+
+| Split | Closed | Open | Open recall | Overall | N questions |
+|---|---|---|---|---|---|
+| Feedback (val) | 76.54 | 34.55 | 40.59 | 51.38 | 1053 |
+| Test | 75.72 | 36.59 | 42.76 | 51.93 | 1061 |
+
+## Table 2 — Capability gaps on the feedback set (C0), sorted by error rate
+
+| Axis | Tag group | N | Error rate | Navigation quota (of 1500) |
+|---|---|---|---|---|
+| content_type | KG | 155 | 72.3 | 101 |
+| content_type | Color | 31 | 67.7 | 95 |
+| content_type | Plane | 62 | 67.7 | 95 |
+| location | Neck | 40 | 57.5 | 80 |
+| location | Brain_Tissue | 173 | 56.1 | 78 |
+| content_type | Position | 183 | 55.7 | 78 |
+| modality | X-Ray | 338 | 52.7 | 73 |
+| content_type | Size | 59 | 52.5 | 73 |
+| location | Pelvic Cavity | 42 | 52.4 | 73 |
+| location | Lung | 386 | 51.0 | 71 |
+| content_type | Quantity | 56 | 50.0 | 70 |
+| content_type | other | 11 | 48.6 * | 68 |
+| modality | MRI | 233 | 48.5 | 68 |
+| modality | CT | 482 | 45.9 | 64 |
+| location | other | 22 | 45.5 | 63 |
+| location | Abdomen | 296 | 43.2 | 60 |
+| content_type | Abnormality | 132 | 40.9 | 57 |
+| location | Brain_Face | 40 | 40.0 | 56 |
+| location | Chest_lung | 27 | 37.0 | 52 |
+| content_type | Organ | 254 | 33.9 | 47 |
+| location | Brain | 27 | 33.3 | 46 |
+| content_type | Modality | 110 | 22.7 | 32 |
+
+\* group below the minimum size; uses the overall feedback error rate.
+
+## Table 3 — Main comparison on SLAKE test (equal budget B)
+
+| Condition | Training examples | Closed | Open | Overall (mean ± SD) | Δ vs C0 |
+|---|---|---|---|---|---|
+| C0 Base | 0 | 75.72 | 36.59 | 51.93 | — |
+| C1 Random | 1500 | 85.58 | 52.92 | 65.72 ± 0.33 (n=3) | +13.79 |
+| C2 Navigation | 1500 | 86.62 | 55.30 | 67.58 ± 0.34 (n=3) | +15.65 |
+| C3 All correct rollouts | 3065 | 86.78 | 55.97 | 68.05 | +16.12 |
+
+**C2 − C1 (seed-averaged): +1.85 pp, 95% paired bootstrap CI [+0.79, +2.95]** (10,000 question resamples).
+
+- seed 1: +1.98 pp [+0.47, +3.58]
+- seed 2: +2.45 pp [+0.94, +3.96]
+- seed 3: +1.13 pp [-0.47, +2.83]
+
+### Robustness — lenient scoring
+
+| Condition | Overall, strict | Overall, lenient | Lenient − strict |
+|---|---|---|---|
+| C0 Base | 51.93 | 56.46 | +4.52 |
+| C1 Random | 65.72 ± 0.33 | 68.08 ± 0.52 | +2.36 |
+| C2 Navigation | 67.58 ± 0.34 | 69.84 ± 0.34 | +2.26 |
+| C3 All correct rollouts | 68.05 | 70.31 | +2.26 |
+
+C2 − C1 under lenient scoring: +1.76 pp, 95% CI [+0.72, +2.83].
+
+Lenient scoring is a secondary check, not the primary metric. Beyond the strict normalisation it treats 'axial' as 'transverse', ignores a trailing plural 's', and drops the word 'plane' (e.g. 'axial' = 'Transverse Plane', 'Lungs' = 'Lung'). Training data and selection used strict scoring only.
+
+Reference: Paper, Qwen3.5-9B on SLAKE: 76.80 (R0) → 78.23 (R3); not directly comparable.
+
+## Table 4 — Per-group change on test (C1 vs C2)
+
+| Tag group | N test | C0 | C1 | C2 | C2 − C1 | Targeted by navigation? |
+|---|---|---|---|---|---|---|
+| location:other | 10 | 30.0 | 46.7 | 60.0 | +13.3 | yes (4% vs 2%) |
+| content_type:Organ | 253 | 66.8 | 79.4 | 83.8 | +4.3 | no (27% vs 31%) |
+| location:Brain_Tissue | 166 | 49.4 | 59.6 | 63.5 | +3.8 | yes (14% vs 12%) |
+| location:Neck | 35 | 45.7 | 57.1 | 61.0 | +3.8 | yes (4% vs 2%) |
+| content_type:KG | 148 | 26.4 | 38.5 | 41.2 | +2.7 | yes (10% vs 6%) |
+| modality:CT | 472 | 51.5 | 62.9 | 65.3 | +2.4 | yes (55% vs 49%) |
+| content_type:Plane | 58 | 37.9 | 46.0 | 48.3 | +2.3 | yes (6% vs 3%) |
+| location:Pelvic Cavity | 47 | 29.8 | 40.4 | 42.6 | +2.1 | yes (8% vs 4%) |
+| content_type:Quantity | 52 | 48.1 | 71.2 | 73.1 | +1.9 | yes (7% vs 4%) |
+| location:Abdomen | 313 | 54.0 | 66.2 | 68.2 | +1.9 | no (24% vs 33%) |
+| modality:MRI | 228 | 56.1 | 66.8 | 68.7 | +1.9 | no (22% vs 24%) |
+| content_type:Abnormality | 150 | 54.7 | 64.9 | 66.0 | +1.1 | no (13% vs 16%) |
+| modality:X-Ray | 361 | 49.9 | 68.7 | 69.8 | +1.1 | no (24% vs 27%) |
+| content_type:Position | 186 | 39.2 | 47.5 | 48.6 | +1.1 | no (11% vs 13%) |
+| content_type:Size | 65 | 47.7 | 83.1 | 84.1 | +1.0 | no (8% vs 8%) |
+| location:Lung | 419 | 52.7 | 70.3 | 71.2 | +0.9 | no (29% vs 34%) |
+| location:Brain | 42 | 73.8 | 77.8 | 78.6 | +0.8 | no (6% vs 6%) |
+| content_type:Modality | 108 | 88.0 | 97.5 | 97.5 | +0.0 | no (12% vs 16%) |
+| content_type:other | 7 | 0.0 | 0.0 | 0.0 | +0.0 | no (0% vs 0%) |
+| location:Brain_Face | 29 | 51.7 | 69.0 | 67.8 | -1.1 | yes (6% vs 3%) |
+| content_type:Color | 34 | 44.1 | 90.2 | 84.3 | -5.9 | yes (6% vs 3%) |
+
+Targeted = the group's share of navigation examples exceeds its share of usable pool questions (shown as nav share vs pool share). Small groups are noisy.
+
+## Table 5 — Data statistics per condition
+
+| Selection | Questions sampled | With ≥1 correct rollout | Accepted examples | Correct rollouts (%) | Share from weakest 3 groups (%) |
+|---|---|---|---|---|---|
+| all | 4919 | 3065 | 3065 | 45.3 | 12.2 |
+| nav | 3354 | 1500 | 1500 | 23.2 | 22.2 |
+| random_s1 | 2399 | 1500 | 1500 | 45.1 | 12.5 |
+| random_s2 | 2399 | 1500 | 1500 | 45.8 | 12.5 |
+| random_s3 | 2413 | 1500 | 1500 | 45.2 | 12.8 |
+
+Weakest 3 groups (C0 feedback): content_type:KG, content_type:Color, content_type:Plane. Questions sampled counts every pool question the selector walked, including those skipped for having no correct rollout.
+
+  (0.1 min)
+
+done: C:\Users\Ruhan\Desktop\MedEvo Data Navigation\medevo-lite\outputs\tables.md

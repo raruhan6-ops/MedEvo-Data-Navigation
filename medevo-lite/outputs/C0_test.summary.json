@@ -1,0 +1,13 @@
+{
+  "closed": 75.72,
+  "open": 36.59,
+  "open_recall": 42.76,
+  "overall": 51.93,
+  "n": 1061,
+  "condition": "C0",
+  "split": "test",
+  "model": "models/Qwen3.5-0.8B",
+  "adapter": null,
+  "backend": "transformers",
+  "seconds": 98
+}

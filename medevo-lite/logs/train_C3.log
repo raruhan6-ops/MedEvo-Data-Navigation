@@ -1,0 +1,44 @@
+{"model": "models/Qwen3.5-0.8B", "data": "all", "seed": 1, "run": "C3", "epochs": 1.0, "lr": 0.0001, "grad_accum": 16, "lora_rank": 8, "lora_alpha": 32, "max_length": 2048, "grad_checkpointing": false, "n_examples": 42, "optimizer_steps": 3, "lora_targets": ["down_proj", "gate_proj", "in_proj_a", "in_proj_b", "in_proj_qkv", "in_proj_z", "k_proj", "o_proj", "out_proj", "q_proj", "up_proj", "v_proj"]}
+step 3/3  loss 2.0285  lr 0.00e+00  7.1s/step  eta 0 min
+{"run": "C3", "minutes": 0.4, "skipped_too_long": 0, "peak_gpu_gb": 4.22}
+{"model": "models/Qwen3.5-0.8B", "data": "all", "seed": 1, "run": "C3", "epochs": 2.0, "lr": 0.0001, "grad_accum": 16, "lora_rank": 8, "lora_alpha": 32, "max_length": 2048, "grad_checkpointing": false, "n_examples": 3065, "optimizer_steps": 384, "lora_targets": ["down_proj", "gate_proj", "in_proj_a", "in_proj_b", "in_proj_qkv", "in_proj_z", "k_proj", "o_proj", "out_proj", "q_proj", "up_proj", "v_proj"]}
+step 10/384  loss 0.8583  lr 9.09e-05  7.4s/step  eta 46 min
+step 20/384  loss 0.7376  lr 9.76e-05  7.1s/step  eta 43 min
+step 30/384  loss 0.5473  lr 9.49e-05  7.3s/step  eta 43 min
+step 40/384  loss 0.4551  lr 9.22e-05  7.8s/step  eta 45 min
+step 50/384  loss 0.3687  lr 8.95e-05  8.0s/step  eta 45 min
+step 60/384  loss 0.4786  lr 8.69e-05  8.1s/step  eta 44 min
+step 70/384  loss 0.4433  lr 8.42e-05  8.1s/step  eta 42 min
+step 80/384  loss 0.4264  lr 8.15e-05  8.1s/step  eta 41 min
+step 90/384  loss 0.3945  lr 7.88e-05  8.1s/step  eta 40 min
+step 100/384  loss 0.4745  lr 7.61e-05  8.1s/step  eta 38 min
+step 110/384  loss 0.4249  lr 7.35e-05  8.1s/step  eta 37 min
+step 120/384  loss 0.3777  lr 7.08e-05  8.1s/step  eta 36 min
+step 130/384  loss 0.4726  lr 6.81e-05  8.0s/step  eta 34 min
+step 140/384  loss 0.4104  lr 6.54e-05  7.9s/step  eta 32 min
+step 150/384  loss 0.3031  lr 6.27e-05  7.9s/step  eta 31 min
+step 160/384  loss 0.3410  lr 6.01e-05  7.9s/step  eta 30 min
+step 170/384  loss 0.3212  lr 5.74e-05  8.0s/step  eta 28 min
+step 180/384  loss 0.3932  lr 5.47e-05  8.0s/step  eta 27 min
+step 190/384  loss 0.3657  lr 5.20e-05  8.1s/step  eta 26 min
+step 200/384  loss 0.2163  lr 4.93e-05  8.1s/step  eta 25 min
+step 210/384  loss 0.3819  lr 4.66e-05  8.1s/step  eta 24 min
+step 220/384  loss 0.2758  lr 4.40e-05  8.2s/step  eta 22 min
+step 230/384  loss 0.2748  lr 4.13e-05  8.2s/step  eta 21 min
+step 240/384  loss 0.3533  lr 3.86e-05  8.2s/step  eta 20 min
+step 250/384  loss 0.3240  lr 3.59e-05  8.2s/step  eta 18 min
+step 260/384  loss 0.2635  lr 3.32e-05  8.2s/step  eta 17 min
+step 270/384  loss 0.2968  lr 3.06e-05  8.2s/step  eta 16 min
+step 280/384  loss 0.2820  lr 2.79e-05  8.3s/step  eta 14 min
+step 290/384  loss 0.2782  lr 2.52e-05  8.3s/step  eta 13 min
+step 300/384  loss 0.3049  lr 2.25e-05  8.3s/step  eta 12 min
+step 310/384  loss 0.3495  lr 1.98e-05  8.3s/step  eta 10 min
+step 320/384  loss 0.2596  lr 1.72e-05  8.3s/step  eta 9 min
+step 330/384  loss 0.3279  lr 1.45e-05  8.3s/step  eta 8 min
+step 340/384  loss 0.3023  lr 1.18e-05  8.3s/step  eta 6 min
+step 350/384  loss 0.2496  lr 9.12e-06  8.3s/step  eta 5 min
+step 360/384  loss 0.3065  lr 6.43e-06  8.3s/step  eta 3 min
+step 370/384  loss 0.3165  lr 3.75e-06  8.3s/step  eta 2 min
+step 380/384  loss 0.2642  lr 1.07e-06  8.3s/step  eta 1 min
+step 384/384  loss 0.2723  lr 0.00e+00  8.3s/step  eta 0 min
+{"run": "C3", "minutes": 53.2, "skipped_too_long": 0, "peak_gpu_gb": 4.93}

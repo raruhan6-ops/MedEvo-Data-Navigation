@@ -1,0 +1,114 @@
+{
+  "t1_val": {
+    "closed": 76.54,
+    "open": 34.55,
+    "open_recall": 40.59,
+    "overall": 51.38,
+    "n": 1053
+  },
+  "t1_test": {
+    "closed": 75.72,
+    "open": 36.59,
+    "open_recall": 42.76,
+    "overall": 51.93,
+    "n": 1061
+  },
+  "t3_C0": {
+    "runs": [
+      "C0"
+    ],
+    "summaries": [
+      {
+        "closed": 75.72,
+        "open": 36.59,
+        "open_recall": 42.76,
+        "overall": 51.93,
+        "n": 1061
+      }
+    ]
+  },
+  "t3_C1": {
+    "runs": [
+      "C1_s1",
+      "C1_s2",
+      "C1_s3"
+    ],
+    "summaries": [
+      {
+        "closed": 86.3,
+        "open": 52.4,
+        "open_recall": 56.43,
+        "overall": 65.69,
+        "n": 1061
+      },
+      {
+        "closed": 84.86,
+        "open": 52.87,
+        "open_recall": 56.85,
+        "overall": 65.41,
+        "n": 1061
+      },
+      {
+        "closed": 85.58,
+        "open": 53.49,
+        "open_recall": 57.37,
+        "overall": 66.07,
+        "n": 1061
+      }
+    ]
+  },
+  "t3_C2": {
+    "runs": [
+      "C2_s1",
+      "C2_s2",
+      "C2_s3"
+    ],
+    "summaries": [
+      {
+        "closed": 85.82,
+        "open": 55.97,
+        "open_recall": 59.98,
+        "overall": 67.67,
+        "n": 1061
+      },
+      {
+        "closed": 88.22,
+        "open": 54.73,
+        "open_recall": 59.15,
+        "overall": 67.86,
+        "n": 1061
+      },
+      {
+        "closed": 85.82,
+        "open": 55.19,
+        "open_recall": 60.11,
+        "overall": 67.2,
+        "n": 1061
+      }
+    ]
+  },
+  "t3_C3": {
+    "runs": [
+      "C3"
+    ],
+    "summaries": [
+      {
+        "closed": 86.78,
+        "open": 55.97,
+        "open_recall": 60.6,
+        "overall": 68.05,
+        "n": 1061
+      }
+    ]
+  },
+  "c2_minus_c1": {
+    "diff": 1.8535972353125982,
+    "lo": 0.785422557335847,
+    "hi": 2.9531888155827835
+  },
+  "c2_minus_c1_lenient": {
+    "diff": 1.7593465284322967,
+    "lo": 0.722588752748979,
+    "hi": 2.8275212064090485
+  }
+}

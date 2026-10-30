@@ -1,0 +1,3 @@
+# Scripts keep LF so they run on Linux GPU machines
+*.sh text eol=lf
+*.py text eol=lf

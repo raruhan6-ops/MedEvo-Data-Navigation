@@ -1,0 +1,24 @@
+{"model": "models/Qwen3.5-0.8B", "data": "random_s1", "seed": 1, "run": "C1_s1", "epochs": 1.0, "lr": 0.0001, "grad_accum": 16, "lora_rank": 8, "lora_alpha": 32, "max_length": 2048, "grad_checkpointing": false, "n_examples": 24, "optimizer_steps": 2, "lora_targets": ["down_proj", "gate_proj", "in_proj_a", "in_proj_b", "in_proj_qkv", "in_proj_z", "k_proj", "o_proj", "out_proj", "q_proj", "up_proj", "v_proj"]}
+step 2/2  loss 0.9136  lr 0.00e+00  7.7s/step  eta 0 min
+{"run": "C1_s1", "minutes": 0.3, "skipped_too_long": 0, "peak_gpu_gb": 4.23}
+{"model": "models/Qwen3.5-0.8B", "data": "random_s1", "seed": 1, "run": "C1_s1", "epochs": 2.0, "lr": 0.0001, "grad_accum": 16, "lora_rank": 8, "lora_alpha": 32, "max_length": 2048, "grad_checkpointing": false, "n_examples": 1500, "optimizer_steps": 188, "lora_targets": ["down_proj", "gate_proj", "in_proj_a", "in_proj_b", "in_proj_qkv", "in_proj_z", "k_proj", "o_proj", "out_proj", "q_proj", "up_proj", "v_proj"]}
+step 10/188  loss 0.7542  lr 9.73e-05  6.8s/step  eta 20 min
+step 20/188  loss 0.5937  lr 9.18e-05  6.8s/step  eta 19 min
+step 30/188  loss 0.4114  lr 8.63e-05  6.8s/step  eta 18 min
+step 40/188  loss 0.5624  lr 8.09e-05  6.7s/step  eta 17 min
+step 50/188  loss 0.4741  lr 7.54e-05  6.7s/step  eta 16 min
+step 60/188  loss 0.4229  lr 6.99e-05  6.7s/step  eta 14 min
+step 70/188  loss 0.3485  lr 6.45e-05  6.7s/step  eta 13 min
+step 80/188  loss 0.3422  lr 5.90e-05  6.7s/step  eta 12 min
+step 90/188  loss 0.3761  lr 5.36e-05  6.7s/step  eta 11 min
+step 100/188  loss 0.3162  lr 4.81e-05  6.7s/step  eta 10 min
+step 110/188  loss 0.3399  lr 4.26e-05  6.7s/step  eta 9 min
+step 120/188  loss 0.2484  lr 3.72e-05  6.7s/step  eta 8 min
+step 130/188  loss 0.3503  lr 3.17e-05  6.7s/step  eta 6 min
+step 140/188  loss 0.3005  lr 2.62e-05  6.7s/step  eta 5 min
+step 150/188  loss 0.3274  lr 2.08e-05  6.7s/step  eta 4 min
+step 160/188  loss 0.2912  lr 1.53e-05  6.7s/step  eta 3 min
+step 170/188  loss 0.2843  lr 9.84e-06  6.7s/step  eta 2 min
+step 180/188  loss 0.3320  lr 4.37e-06  6.7s/step  eta 1 min
+step 188/188  loss 0.2722  lr 0.00e+00  6.7s/step  eta 0 min
+{"run": "C1_s1", "minutes": 21.0, "skipped_too_long": 0, "peak_gpu_gb": 4.93}

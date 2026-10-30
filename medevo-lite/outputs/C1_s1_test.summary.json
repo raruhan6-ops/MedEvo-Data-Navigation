@@ -1,0 +1,13 @@
+{
+  "closed": 86.3,
+  "open": 52.4,
+  "open_recall": 56.43,
+  "overall": 65.69,
+  "n": 1061,
+  "condition": "C1_s1",
+  "split": "test",
+  "model": "models/Qwen3.5-0.8B",
+  "adapter": "C:\\Users\\Ruhan\\Desktop\\MedEvo Data Navigation\\medevo-lite\\ckpt\\C1_s1\\adapter",
+  "backend": "transformers",
+  "seconds": 99
+}
