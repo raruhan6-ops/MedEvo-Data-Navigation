@@ -46,6 +46,7 @@ Accuracy in %, differences in percentage points (pp).
 | C1 Random | 1500 | 85.58 | 52.92 | 65.72 ± 0.33 (n=3) | +13.79 |
 | C2 Navigation | 1500 | 86.62 | 55.30 | 67.58 ± 0.34 (n=3) | +15.65 |
 | C3 All correct rollouts | 3065 | 86.78 | 55.97 | 68.05 | +16.12 |
+| C4 Navigation, round 2 (α = 1) | 1500 | 85.58 | 55.50 | 67.30 | +15.37 |
 
 **C2 − C1 (seed-averaged): +1.85 pp, 95% paired bootstrap CI [+0.79, +2.95]** (10,000 question resamples).
 
@@ -61,6 +62,7 @@ Accuracy in %, differences in percentage points (pp).
 | C1 Random | 65.72 ± 0.33 | 68.08 ± 0.52 | +2.36 |
 | C2 Navigation | 67.58 ± 0.34 | 69.84 ± 0.34 | +2.26 |
 | C3 All correct rollouts | 68.05 | 70.31 | +2.26 |
+| C4 Navigation, round 2 (α = 1) | 67.30 | 69.56 | +2.26 |
 
 C2 − C1 under lenient scoring: +1.76 pp, 95% CI [+0.72, +2.83].
 
@@ -102,6 +104,7 @@ Targeted = the group's share of navigation examples exceeds its share of usable 
 |---|---|---|---|---|---|
 | all | 4919 | 3065 | 3065 | 45.3 | 12.2 |
 | nav | 3354 | 1500 | 1500 | 23.2 | 22.2 |
+| nav_r2 | 3354 | 1500 | 1500 | 23.6 | 23.1 |
 | random_s1 | 2399 | 1500 | 1500 | 45.1 | 12.5 |
 | random_s2 | 2399 | 1500 | 1500 | 45.8 | 12.5 |
 | random_s3 | 2413 | 1500 | 1500 | 45.2 | 12.8 |

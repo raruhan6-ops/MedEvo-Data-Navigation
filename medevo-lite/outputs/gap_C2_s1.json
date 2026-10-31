@@ -1,0 +1,139 @@
+{
+  "condition": "C2_s1",
+  "prev": "C0",
+  "overall_error": 0.3134,
+  "groups": {
+    "content_type:Abnormality": {
+      "n": 132,
+      "error_rate": 0.3485,
+      "error_source": "group",
+      "regress_rate": 0.0682
+    },
+    "content_type:Color": {
+      "n": 31,
+      "error_rate": 0.2258,
+      "error_source": "group",
+      "regress_rate": 0.0
+    },
+    "content_type:KG": {
+      "n": 155,
+      "error_rate": 0.5484,
+      "error_source": "group",
+      "regress_rate": 0.0065
+    },
+    "content_type:Modality": {
+      "n": 110,
+      "error_rate": 0.0455,
+      "error_source": "group",
+      "regress_rate": 0.0
+    },
+    "content_type:Organ": {
+      "n": 254,
+      "error_rate": 0.1772,
+      "error_source": "group",
+      "regress_rate": 0.0354
+    },
+    "content_type:Plane": {
+      "n": 62,
+      "error_rate": 0.5645,
+      "error_source": "group",
+      "regress_rate": 0.0
+    },
+    "content_type:Position": {
+      "n": 183,
+      "error_rate": 0.3716,
+      "error_source": "group",
+      "regress_rate": 0.0273
+    },
+    "content_type:Quantity": {
+      "n": 56,
+      "error_rate": 0.2857,
+      "error_source": "group",
+      "regress_rate": 0.0357
+    },
+    "content_type:Size": {
+      "n": 59,
+      "error_rate": 0.2034,
+      "error_source": "group",
+      "regress_rate": 0.0508
+    },
+    "content_type:other": {
+      "n": 11,
+      "error_rate": 0.3134,
+      "error_source": "overall",
+      "regress_rate": 0.0
+    },
+    "location:Abdomen": {
+      "n": 296,
+      "error_rate": 0.3007,
+      "error_source": "group",
+      "regress_rate": 0.0541
+    },
+    "location:Brain": {
+      "n": 27,
+      "error_rate": 0.1481,
+      "error_source": "group",
+      "regress_rate": 0.0
+    },
+    "location:Brain_Face": {
+      "n": 40,
+      "error_rate": 0.375,
+      "error_source": "group",
+      "regress_rate": 0.075
+    },
+    "location:Brain_Tissue": {
+      "n": 173,
+      "error_rate": 0.3468,
+      "error_source": "group",
+      "regress_rate": 0.0058
+    },
+    "location:Chest_lung": {
+      "n": 27,
+      "error_rate": 0.2593,
+      "error_source": "group",
+      "regress_rate": 0.0
+    },
+    "location:Lung": {
+      "n": 386,
+      "error_rate": 0.2979,
+      "error_source": "group",
+      "regress_rate": 0.0207
+    },
+    "location:Neck": {
+      "n": 40,
+      "error_rate": 0.525,
+      "error_source": "group",
+      "regress_rate": 0.025
+    },
+    "location:Pelvic Cavity": {
+      "n": 42,
+      "error_rate": 0.3571,
+      "error_source": "group",
+      "regress_rate": 0.0
+    },
+    "location:other": {
+      "n": 22,
+      "error_rate": 0.1818,
+      "error_source": "group",
+      "regress_rate": 0.0
+    },
+    "modality:CT": {
+      "n": 482,
+      "error_rate": 0.3257,
+      "error_source": "group",
+      "regress_rate": 0.0353
+    },
+    "modality:MRI": {
+      "n": 233,
+      "error_rate": 0.2833,
+      "error_source": "group",
+      "regress_rate": 0.0215
+    },
+    "modality:X-Ray": {
+      "n": 338,
+      "error_rate": 0.3166,
+      "error_source": "group",
+      "regress_rate": 0.0207
+    }
+  }
+}

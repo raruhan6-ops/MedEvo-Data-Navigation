@@ -1,0 +1,101 @@
+﻿qid,answer_type,question,answer,response,pred,correct,parser_ok,human_correct,note
+12722,OPEN,In what plane is this image scanned?,Transverse Plane,"Axial
+",Axial,0,y,y,axial = transverse plane
+12795,CLOSED,Is this a study of the abdomen?,Yes,"Yes
+",Yes,1,y,y,
+12016,OPEN,What modality is used to take this image?,X-Ray,"X-ray
+",X-ray,1,y,y,
+12464,OPEN,Which organ system is imaged?,Chest,"Chest
+",Chest,1,y,y,
+12981,OPEN,Which part of the body does this image belong to?,Chest,"Chest
+",Chest,1,y,y,
+12929,CLOSED,"Which is bigger in this image, small bowel or colon?",Small Bowel,"Answer: colon
+",colon,0,y,n,
+12763,OPEN,How much damage will be caused to the body taking such an image?,None,"Answer: none
+",none,1,y,y,
+12555,CLOSED,Does the ears exist in this picture?,Yes,"Yes
+",Yes,1,y,y,
+12910,CLOSED,Is this a coronal section?,No,"No
+",No,1,y,y,
+12667,OPEN,How to prevent the occurrence of the disease on the upper left lobe of brain in this image?,"Pay attention to dietary hygiene, strengthen physical fitness and avoid brain trauma","Answer: No
+",No,0,y,n,
+12381,OPEN,What is the function of the main organ in this picture?,Breathe,"Lung
+",Lung,0,y,n,
+12967,CLOSED,Does the picture contain heart?,Yes,"Yes
+",Yes,1,y,y,
+12219,OPEN,What is the scanning plane of this image?,Transverse  Plane,"Axial
+",Axial,0,y,y,axial = transverse plane
+12511,CLOSED,Does the patient have any abnormalities?,Yes,"Yes
+",Yes,1,y,y,
+12220,OPEN,What are the white spots in the black part of the lower part of body?,Pulmonary bronchus,"Lung
+",Lung,0,y,n,
+12128,OPEN,Where is/are the abnormality located?,Liver,"Liver
+",Liver,1,y,y,
+12447,CLOSED,"Which side of lung is abnormal in this image,left or right?",Left,"Right
+",Right,0,y,n,
+12234,OPEN,Which is the kidney?,Symmetrical to the bone marrow,"Right
+",Right,0,y,n,odd gold label
+12569,CLOSED,Does the picture contain mandible?,Yes,"Yes
+",Yes,1,y,y,
+12136,OPEN,What is the organ on the top of the body in this image?,Liver,"Liver
+",Liver,1,y,y,
+12085,CLOSED,Is the liver healthy?,Yes,"Yes
+",Yes,1,y,y,
+12610,OPEN,Which organs/organ in the picture belong to the digestive system?,Esophagus,"Esophagus
+",Esophagus,1,y,y,
+12900,OPEN,Where is the rectum existing in this image?,Bottom,"Center
+",Center,0,y,n,
+12140,OPEN,What is the largest organ in the picture?,Liver,"Liver
+",Liver,1,y,y,
+12658,OPEN,How many kinds of abnormalities are there in this image?,1,"Answer: 1
+",1,1,y,y,
+12823,OPEN,What organ is the black part on the upper left of the image?,Small Bowel,"Stomach
+",Stomach,0,y,n,
+12581,OPEN,What organ system is pictured?,Neck,"Neck
+",Neck,1,y,y,
+12352,OPEN,What kind of symptoms will the disease on the heart in this image bring to the patient?,"Chest tightness, arrhythmia","Heart failure
+",Heart failure,0,y,n,
+12840,OPEN,How many lungs have existed in this image?,0,"0
+",0,1,y,y,
+12467,CLOSED,Are there abnormalities in this image?,Yes,"Yes
+",Yes,1,y,y,
+12061,CLOSED,Does the picture contain kidney?,Yes,"Yes
+",Yes,1,y,y,
+11962,OPEN,What diseases are included in the picture?,Lung Cancer,"Pneumonia
+",Pneumonia,0,y,n,
+12125,CLOSED,Does the picture contain spleen?,Yes,"Yes
+",Yes,1,y,y,
+12750,CLOSED,Do the organs in the image exist in the head?,Yes,"Yes
+",Yes,1,y,y,
+11936,OPEN,What is the main organ in the image?,"Lung, Spinal Cord","Lung
+",Lung,0,y,n,partial: one of two organs
+12944,CLOSED,Are there organs in the picture that can promote blood flow?,No,"Yes
+",Yes,0,y,n,
+12616,CLOSED,Do the organs in the image exist in the head?,Yes,"Yes
+",Yes,1,y,y,
+12433,OPEN,Where is/are the nodule located in this image?,Left Lung,"Left lung
+",Left lung,1,y,y,
+12600,CLOSED,Does the picture contain the organ that could be used for detoxicating?,No,"Yes
+",Yes,0,y,n,
+12062,CLOSED,Does the picture contain spleen?,Yes,"Yes
+",Yes,1,y,y,
+12325,OPEN,What is the scanning plane of this image?,Coronal Plane,"AP
+",AP,0,y,n,"AP is a projection, not a plane; frontal view is coronal, so borderline"
+12388,OPEN,Where is the nodule in this image?,Upper Right Lung,"Right lung
+",Right lung,0,y,n,"right side, but less specific than gold"
+12422,CLOSED,Is the lung healthy?,No,"No
+",No,1,y,y,
+12225,CLOSED,Does the picture contain kidney?,Yes,"Yes
+",Yes,1,y,y,
+12851,CLOSED,"Which is bigger in this image,liver or stomach?",Liver,"Stomach
+",Stomach,0,y,n,
+12120,OPEN,What modality is used to take this image?,CT,"CT
+",CT,1,y,y,
+12098,CLOSED,Does the picture contain lung?,Yes,"Yes
+",Yes,1,y,y,
+12589,OPEN,What scanning plane does this image belong to?,Transverse Plane,"Axial
+",Axial,0,y,y,axial = transverse plane
+12974,OPEN,What is the largest organ in the picture?,Liver,"Liver
+",Liver,1,y,y,
+12936,CLOSED,Do any of the organs in the picture belong to the digestive system?,Yes,"Yes
+",Yes,1,y,y,

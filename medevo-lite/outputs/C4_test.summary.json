@@ -1,0 +1,13 @@
+{
+  "closed": 85.58,
+  "open": 55.5,
+  "open_recall": 60.08,
+  "overall": 67.3,
+  "n": 1061,
+  "condition": "C4",
+  "split": "test",
+  "model": "models/Qwen3.5-0.8B",
+  "adapter": "ckpt/C4/adapter",
+  "backend": "transformers",
+  "seconds": 91
+}

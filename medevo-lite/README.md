@@ -58,6 +58,8 @@ python scripts/05_select.py --B 1500               # step 6: sft_random_s{1,2,3}
 bash   scripts/06_train.sh                         # step 7: C1_s1-3, C2_s1-3, C3 (LoRA + merge)
 bash   scripts/07_eval_all.sh                      # step 8
 python scripts/08_tables.py                        # step 9: outputs/tables.md
+python scripts/09_handcheck.py sample              # 50 test predictions per condition -> outputs/handcheck/*.csv
+python scripts/09_handcheck.py summary             # after filling parser_ok / human_correct
 ```
 
 Each step writes to disk and can be re-run alone. Use `--limit 20` on 02/04 for a quick check before a full run. To train one run first (e.g. the Saturday-night pair): `bash scripts/06_train.sh random_s1 1 C1_s1` and `bash scripts/06_train.sh nav 1 C2_s1`.
@@ -100,5 +102,7 @@ python scripts/05_select.py --rollouts rollouts_train.jsonl rollouts_train_k8.js
 
 - **Laptop pipeline: run end to end** on 31 Oct 2026 (01:10 to 05:43) with `run_laptop.py` on an RTX 3060 Laptop GPU: C0, rollouts, selection, C1 and C2 (3 seeds each) and C3. Results are in `outputs/tables.md`, and every number comes from the per-question files in `outputs/`.
 - **Main result:** on SLAKE test, navigation (C2) beats random selection (C1) at 1,500 examples by +1.85 pp, 95% paired bootstrap CI [+0.79, +2.95] (67.58 vs 65.72). See `outputs/tables.md` for Tables 1 to 5 and the lenient-scoring check.
+- **C4 (round 2, α = 1):** run on 1 Nov 2026 (`logs/c4_run.log`). 67.30 on test, single seed: no better than C2 (C4 − C2_s1 −0.38 pp, CI [−1.79, +1.04]), still above C1 (+1.57 pp, CI [+0.16, +2.95]). Round 2 reuses the base model's rollouts; only the group scores change.
+- **Parser and scorer check:** 50 test predictions each for C0, C1_s1, C2_s1 and C3, reviewed by an AI assistant (Claude), not by hand. Parser right on 200/200; strict score agrees on 92–94%, and every disagreement is strict scoring being too harsh (`axial` vs `Transverse Plane`). See `outputs/handcheck/summary.md`.
 - **Training logs:** `logs/train_C1_s1.log`, `train_C2_s1.log` and `train_C3.log` begin with a few lines from the earlier `--quick` test (the `step 2/2` entries); the full-run entries follow.
 - **GPU-machine path** (`setup.sh`, `run_pipeline.sh`, `06_train.sh`, vLLM and ms-swift): written and syntax-checked, but not run, because no rented GPU was used.
