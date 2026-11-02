@@ -62,6 +62,8 @@ def main():
     ap.add_argument("--lora-alpha", type=int, default=32)
     ap.add_argument("--max-length", type=int, default=2048)
     ap.add_argument("--grad-checkpointing", action="store_true", help="saves memory, ~30% slower")
+    ap.add_argument("--save-every", type=int, default=0,
+                    help="also save the adapter every N optimizer steps to ckpt/<run>/step<N> (learning curves)")
     args = ap.parse_args()
 
     out_dir = CKPT / args.run / "adapter"
@@ -97,10 +99,13 @@ def main():
     meta = {**vars(args), "n_examples": len(rows), "optimizer_steps": total_steps, "lora_targets": targets}
     print(json.dumps(meta), file=log, flush=True)
     print(f"{args.run}: {len(rows)} examples, {total_steps} optimizer steps, LoRA on {targets}")
+    # one line per optimizer step: loss, pre-clip gradient norm, lr, step time, memory
+    metrics = open(LOGS / f"metrics_{args.run}.jsonl", "w", encoding="utf-8")
 
     model.train()
     rng = random.Random(args.seed)
     step, micro, running, since_log, t0, skipped = 0, 0, 0.0, 0, time.time(), 0
+    step_loss, step_tokens, t_step = 0.0, 0, time.time()
     while step < total_steps:
         order = rows[:]
         rng.shuffle(order)
@@ -113,15 +118,25 @@ def main():
             loss = model(**batch).loss / args.grad_accum
             loss.backward()
             running += loss.item()
+            step_loss += loss.item()
+            step_tokens += batch["input_ids"].shape[1]
             micro += 1
             if micro % args.grad_accum:
                 continue
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0).item()
+            lr = sched.get_last_lr()[0]
             opt.step()
             sched.step()
             opt.zero_grad(set_to_none=True)
             step += 1
             since_log += 1
+            print(json.dumps({"step": step, "loss": round(step_loss, 5), "grad_norm": round(grad_norm, 5), "lr": lr,
+                              "seconds": round(time.time() - t_step, 2), "tokens": step_tokens,
+                              "gpu_gb": round(torch.cuda.max_memory_allocated() / 1e9, 2)}),
+                  file=metrics, flush=True)
+            step_loss, step_tokens, t_step = 0.0, 0, time.time()
+            if args.save_every and step % args.save_every == 0 and step < total_steps:
+                model.save_pretrained(CKPT / args.run / f"step{step:03d}")
             if step % 10 == 0 or step == total_steps:
                 rate = (time.time() - t0) / step
                 msg = (f"step {step}/{total_steps}  loss {running / since_log:.4f}  "

@@ -1,0 +1,21 @@
+{"model": "models/Qwen3.5-0.8B", "data": "random_s1", "seed": 1, "run": "C1_s1_traj", "epochs": 2.0, "lr": 0.0001, "grad_accum": 16, "lora_rank": 8, "lora_alpha": 32, "max_length": 2048, "grad_checkpointing": false, "save_every": 20, "n_examples": 1500, "optimizer_steps": 188, "lora_targets": ["down_proj", "gate_proj", "in_proj_a", "in_proj_b", "in_proj_qkv", "in_proj_z", "k_proj", "o_proj", "out_proj", "q_proj", "up_proj", "v_proj"]}
+step 10/188  loss 0.7563  lr 9.73e-05  34.1s/step  eta 101 min
+step 20/188  loss 0.5931  lr 9.18e-05  32.8s/step  eta 92 min
+step 30/188  loss 0.4095  lr 8.63e-05  31.9s/step  eta 84 min
+step 40/188  loss 0.5631  lr 8.09e-05  30.5s/step  eta 75 min
+step 50/188  loss 0.4760  lr 7.54e-05  28.2s/step  eta 65 min
+step 60/188  loss 0.4238  lr 6.99e-05  28.3s/step  eta 60 min
+step 70/188  loss 0.3488  lr 6.45e-05  25.5s/step  eta 50 min
+step 80/188  loss 0.3409  lr 5.90e-05  23.3s/step  eta 42 min
+step 90/188  loss 0.3724  lr 5.36e-05  21.5s/step  eta 35 min
+step 100/188  loss 0.3116  lr 4.81e-05  20.2s/step  eta 30 min
+step 110/188  loss 0.3418  lr 4.26e-05  19.0s/step  eta 25 min
+step 120/188  loss 0.2522  lr 3.72e-05  18.1s/step  eta 21 min
+step 130/188  loss 0.3507  lr 3.17e-05  17.3s/step  eta 17 min
+step 140/188  loss 0.3077  lr 2.62e-05  16.7s/step  eta 13 min
+step 150/188  loss 0.3272  lr 2.08e-05  16.1s/step  eta 10 min
+step 160/188  loss 0.2903  lr 1.53e-05  15.5s/step  eta 7 min
+step 170/188  loss 0.2863  lr 9.84e-06  15.1s/step  eta 5 min
+step 180/188  loss 0.3322  lr 4.37e-06  14.7s/step  eta 2 min
+step 188/188  loss 0.2714  lr 0.00e+00  14.4s/step  eta 0 min
+{"run": "C1_s1_traj", "minutes": 45.1, "skipped_too_long": 0, "peak_gpu_gb": 4.93}

@@ -1,0 +1,13 @@
+{
+  "closed": 86.49,
+  "open": 54.68,
+  "open_recall": 57.86,
+  "overall": 67.43,
+  "n": 1053,
+  "condition": "traj/C2_s1_traj_step140",
+  "split": "val",
+  "model": "models/Qwen3.5-0.8B",
+  "adapter": "ckpt\\C2_s1_traj\\step140",
+  "backend": "transformers",
+  "seconds": 115
+}

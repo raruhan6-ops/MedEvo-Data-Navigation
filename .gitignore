@@ -6,6 +6,7 @@ medevo-lite/data/
 medevo-lite/ckpt/
 medevo-lite/ckpt_quick/
 medevo-lite/outputs_quick/
+medevo-lite/outputs/repr/
 medevo-lite/logs/full_run.pid
 __pycache__/
 *.pyc
